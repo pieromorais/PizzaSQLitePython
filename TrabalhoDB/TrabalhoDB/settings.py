@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'Pizzaria.apps.PizzariaConfig',
+    'ClientSide.apps.ClientsideConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
