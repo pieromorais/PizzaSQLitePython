@@ -25,21 +25,18 @@ class Sabores(models.Model):
 class Pizza(models.Model):
     # Cria a pizza - e ajuda para organizar e conseguir combinar sabores
     pizza = models.CharField(max_length=1000)
-
+    tamanho = models.IntegerField()
     def __str__(self) -> str:
-        return self.id
+        return self.pizza
 
 class PedidoPizza(models.Model):
     pizza = models.ForeignKey(Pizza,on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
 
-    def __str__(self) -> str:
-        return self.pizza.id
 
 class PedidoPizzaFinal(models.Model):
     order = models.ForeignKey(PedidoPizza, on_delete=models.CASCADE)
     flavor = models.ForeignKey(Sabores, on_delete=models.CASCADE)
     borda = models.ForeignKey(Bordas, on_delete=models.CASCADE)
 
-    def __str__(self) -> str:
-        return self.id
+    

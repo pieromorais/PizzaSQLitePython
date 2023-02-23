@@ -1,1 +1,10 @@
-<h1>monte sua pizza</h1>
+<form action="{% url 'montar' %}" method="post">
+    {% csrf_token %}
+    <label for="tamanho">Tamanho:</label>
+    <select name="tamanho" id="">
+        <option value="1">Pequeno</option>
+        <option value="2">Médio</option>
+        <option value="3">Grande</option>
+    </select>
+    <input type="submit" value="Enviar">
+</form>

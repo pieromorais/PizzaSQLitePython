@@ -1,0 +1,83 @@
+<form action="{% url 'conferir' %}" method="post">
+    {% csrf_token %}
+    {% if linhas_sabores %}
+        {% if tamanho == '1' %}
+            <h1>Tamanho Pequeno</h1>
+            <label for="">Sabor 1:</label>
+            <select name="sabor1" id="">
+                {% for sabor in linhas_sabores %}
+                    <option value="{{ sabor.id }}">{{sabor.sabor}}</option>
+                {% endfor %}                
+            </select>
+            <br>
+            <label for="bordas">Borda:</label>
+            <select name="borda" id="">
+                {% for borda in linhas_bordas %}
+                    <option value="{{ borda.id }}">{{borda.borda}}</option>
+                {% endfor %}                
+            </select>
+            <br>
+            <input type="submit" value="Finalizar">
+        {% elif tamanho == '2' %}
+            <h1>Tamanho Medio</h1>
+            <label for="sabor">Sabor 1:</label>
+            <select name="sabor1" id="">
+                {% for sabor in linhas_sabores %}
+                    <option value="{{ sabor.id }}">{{sabor.sabor}}</option>
+                {% endfor %}
+            </select>
+            <br>
+            <label for="">Sabor 2:</label>
+            <select name="sabor2" id="">
+                {% for sabor in linhas_sabores %}
+                    <option value="{{ sabor.id }}">{{sabor.sabor}}</option>
+                {% endfor %}
+            </select>
+            <br>
+            <label for="bordas">Borda:</label>
+            <select name="borda" id="">
+                {% for borda in linhas_bordas %}
+                    <option value="{{ borda.id }}">{{borda.borda}}</option>
+                {% endfor %}                
+            </select>
+            <br>
+            <input type="submit" value="Finalizar">
+
+        {% else %}
+
+            <h1>Tamanho Grande</h1>
+            <label for="">Sabor 1:</label>
+            <select name="sabor1" id="">
+                {% for sabor in linhas_sabores %}
+                    <option value="{{ sabor.id }}">{{sabor.sabor}}</option>
+                {% endfor %}
+            </select>
+            <br>
+            <label for="sabor">Sabor 2:</label>
+            <select name="sabor2" id="">
+                {% for sabor in linhas_sabores %}
+                    <option value="{{ sabor.id }}">{{sabor.sabor}}</option>
+                {% endfor %}
+            </select>
+            <br>
+            <label for="sabor">Sabor 3:</label>
+            <select name="sabor3" id="">
+                {% for sabor in linhas_sabores %}
+                    <option value="{{ sabor.id }}">{{sabor.sabor}}</option>
+                {% endfor %}
+            </select>
+            <br>
+            <label for="bordas">Borda:</label>
+            <select name="borda" id="">
+                {% for borda in linhas_bordas %}
+                    <option value="{{ borda.id }}">{{borda.borda}}</option>
+                {% endfor %}                
+            </select>
+            <br>
+            <input type="submit" value="Finalizar">
+        {% endif %}
+        <input type="hidden" name="tamanho" value="{{ tamanho }}">
+        <input type="hidden" name="pizza_id" value="{{ pizza_id }}">
+        <input type="hidden" name="pedido_pizza_id" value="{{ pedido_pizza_id }}">
+    {% endif %}
+</form>
